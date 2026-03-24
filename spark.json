@@ -1,0 +1,79 @@
+{
+  "users": [
+    {
+      "id": "a9781bd4-7dd3-4603-a0d5-5ee4e6ecf896",
+      "email": "alex@spark.local",
+      "first_name": "Alex",
+      "university": "Local University",
+      "campus_id": "local-campus",
+      "interests": [
+        "Coffee",
+        "Startups",
+        "Photography"
+      ],
+      "prompts": [
+        {
+          "question_id": "q1",
+          "question": "The last thing that genuinely excited me",
+          "answer": "A new ramen spot on campus."
+        }
+      ],
+      "created_at": "2026-03-24T05:30:59.338Z",
+      "updated_at": "2026-03-24T05:30:59.338Z"
+    },
+    {
+      "id": "d9a72c52-6e80-4148-aeb1-fdea89423c0e",
+      "email": "jamie@spark.local",
+      "first_name": "Jamie",
+      "university": "Local University",
+      "campus_id": "local-campus",
+      "interests": [
+        "Walks",
+        "Design",
+        "Coffee"
+      ],
+      "prompts": [
+        {
+          "question_id": "q2",
+          "question": "My ideal study vibe is",
+          "answer": "Soft music and a big window."
+        }
+      ],
+      "created_at": "2026-03-24T05:30:59.338Z",
+      "updated_at": "2026-03-24T05:30:59.338Z"
+    }
+  ],
+  "availability_windows": [],
+  "daily_matches": [
+    {
+      "user_id": "a9781bd4-7dd3-4603-a0d5-5ee4e6ecf896",
+      "matched_user_id": "d9a72c52-6e80-4148-aeb1-fdea89423c0e",
+      "match_score": 0.6,
+      "overlap_start": "2026-03-24T07:30:59.408Z",
+      "overlap_end": "2026-03-24T08:30:59.408Z",
+      "shared_interests": [
+        "Coffee"
+      ],
+      "status": "pending",
+      "expires_at": "2026-03-25T03:59:59.999Z",
+      "id": "3577c3f6-0be0-4265-bc15-7a523ea302df",
+      "created_at": "2026-03-24T05:30:59.408Z"
+    },
+    {
+      "user_id": "d9a72c52-6e80-4148-aeb1-fdea89423c0e",
+      "matched_user_id": "a9781bd4-7dd3-4603-a0d5-5ee4e6ecf896",
+      "match_score": 0.6,
+      "overlap_start": "2026-03-24T07:30:59.408Z",
+      "overlap_end": "2026-03-24T08:30:59.408Z",
+      "shared_interests": [
+        "Coffee"
+      ],
+      "status": "pending",
+      "expires_at": "2026-03-25T03:59:59.999Z",
+      "id": "07e92e80-22e6-4a75-8be9-41f942a96983",
+      "created_at": "2026-03-24T05:30:59.410Z"
+    }
+  ],
+  "sparks": [],
+  "spark_ratings": []
+}
