@@ -37,6 +37,28 @@ const VENUES_BY_CAMPUS: Record<string, Array<{ activityId: string; id: string; n
 export async function sparkRoutes(fastify: FastifyInstance) {
   const auth = { onRequest: [(fastify as any).authenticate] };
 
+  // GET /sparks/history - all past sparks for the user
+  fastify.get('/history', auth, async (request, reply) => {
+    const userId = getUserId(request);
+
+    const sparks = listSparksForUser(userId);
+
+    // Enrich with other user info
+    const enriched = await Promise.all(
+      (sparks || []).map(async (spark) => {
+        const otherId = spark.user_a_id === userId ? spark.user_b_id : spark.user_a_id;
+        const otherUser = getUserById(otherId);
+        return {
+          ...spark,
+          other_user: otherUser,
+          activity: { id: spark.activity_id, name: spark.activity_name },
+        };
+      })
+    );
+
+    return enriched;
+  });
+
   // GET /sparks/:matchId/activities - get activity options for a spark
   fastify.get('/:matchId/activities', auth, async (request: any, reply) => {
     const userId = getUserId(request);
@@ -128,28 +150,6 @@ export async function sparkRoutes(fastify: FastifyInstance) {
       activity: { id: spark.activity_id, name: spark.activity_name },
       venue: { name: spark.venue_name, address: spark.venue_address },
     };
-  });
-
-  // GET /sparks/history - all past sparks for the user
-  fastify.get('/history', auth, async (request, reply) => {
-    const userId = getUserId(request);
-
-    const sparks = listSparksForUser(userId);
-
-    // Enrich with other user info
-    const enriched = await Promise.all(
-      (sparks || []).map(async (spark) => {
-        const otherId = spark.user_a_id === userId ? spark.user_b_id : spark.user_a_id;
-        const otherUser = getUserById(otherId);
-        return {
-          ...spark,
-          other_user: otherUser,
-          activity: { id: spark.activity_id, name: spark.activity_name },
-        };
-      })
-    );
-
-    return enriched;
   });
 
   // POST /sparks/:sparkId/rate - submit post-spark rating

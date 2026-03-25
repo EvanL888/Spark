@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spark</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-left"></div>
+    <div class="ambient ambient-right"></div>
+
+    <main class="device-shell">
+      <section id="onboarding-screen" class="screen screen-onboarding">
+        <div class="screen-head">
+          <div>
+            <p class="eyebrow">Spark onboarding</p>
+            <h1>What are you into?</h1>
+          </div>
+          <div class="brand-chip">S</div>
+        </div>
+
+        <p class="screen-copy">Pick at least 3. We'll use these to find your Spark.</p>
+
+        <div id="interest-groups" class="interest-groups"></div>
+
+        <div class="sticky-cta">
+          <button id="start-app" class="primary-btn" type="button" disabled>Find my Spark</button>
+        </div>
+      </section>
+
+      <section id="app-shell" class="app-shell hidden">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Spark</p>
+            <h2 id="topbar-title">Home</h2>
+          </div>
+          <div class="topbar-actions">
+            <button id="switch-user" class="ghost-btn" type="button">Maya Chen</button>
+            <button id="open-incoming" class="icon-btn" type="button" aria-label="Open Spark request">
+              <span class="icon-dot"></span>
+              <span>B</span>
+            </button>
+          </div>
+        </header>
+
+        <section id="view-home" class="view">
+          <div class="hero-card">
+            <div class="hero-art">
+              <span id="match-emoji">Coffee</span>
+            </div>
+            <div class="pill-row meta-pills">
+              <span id="activity-label" class="solid-pill">Coffee chat</span>
+              <span id="activity-meta" class="soft-pill">Near you | Today | 20 min</span>
+            </div>
+
+            <div class="match-divider"></div>
+
+            <div class="match-person">
+              <div id="match-avatar" class="avatar coral-avatar">JL</div>
+              <div class="match-person-copy">
+                <h3 id="match-name">Jordan Lee | 3rd year</h3>
+                <p id="match-major" class="muted">Psychology</p>
+              </div>
+            </div>
+
+            <div id="shared-interest-list" class="pill-row shared-pills"></div>
+            <p id="shared-summary" class="caption">You both like 3 things</p>
+
+            <div class="action-row">
+              <button id="pass-match" class="secondary-btn" type="button">Pass</button>
+              <button id="spark-match" class="primary-btn" type="button">Spark it!</button>
+            </div>
+          </div>
+
+          <div class="status-card">
+            <div>
+              <p class="section-label">Live now</p>
+              <strong id="availability-copy">3 people are free near you right now</strong>
+            </div>
+            <button id="open-discover" class="ghost-btn" type="button">Browse activities</button>
+          </div>
+        </section>
+
+        <section id="view-discover" class="view hidden">
+          <div class="section-card intro-card">
+            <p class="eyebrow">Discover</p>
+            <h3>Activity-first suggestions</h3>
+            <p class="muted">
+              Low-stakes ideas built for first hangs, with soft timing and campus-friendly locations.
+            </p>
+          </div>
+          <div id="discover-list" class="stack-list"></div>
+        </section>
+
+        <section id="view-meetups" class="view hidden">
+          <div class="spark-burst">S</div>
+          <div class="section-card celebration-card">
+            <p class="eyebrow">Confirmed</p>
+            <h3>It's a Spark!</h3>
+            <div class="duo-row">
+              <div class="avatar-stack">
+                <div class="avatar coral-avatar">MC</div>
+                <div id="meetup-other-avatar" class="avatar peach-avatar">JL</div>
+              </div>
+              <div>
+                <strong id="meetup-pairing">Maya + Jordan</strong>
+                <p class="muted">Warm intro, one easy meetup.</p>
+              </div>
+            </div>
+
+            <div class="detail-list">
+              <div class="detail-row">
+                <span>Activity</span>
+                <strong id="meetup-activity">Coffee chat</strong>
+              </div>
+              <div class="detail-row">
+                <span>Location</span>
+                <strong id="meetup-location">Blue State Coffee, Student Union - 2nd floor</strong>
+              </div>
+              <div class="detail-row">
+                <span>Date + time</span>
+                <strong id="meetup-time">Today | 2:00-3:00pm</strong>
+              </div>
+              <div class="detail-row">
+                <span>Duration</span>
+                <strong id="meetup-duration">~60 min</strong>
+              </div>
+            </div>
+
+            <div class="action-grid">
+              <button class="ghost-btn wide-btn" type="button">Add to Calendar</button>
+              <button class="ghost-btn wide-btn" type="button">Get Directions</button>
+              <button class="ghost-btn wide-btn" type="button">Message</button>
+            </div>
+          </div>
+
+          <div class="tips-card">
+            <p class="section-label">Spark tips</p>
+            <ul id="tips-list" class="tips-list"></ul>
+          </div>
+
+          <p class="bottom-note">Something came up? Cancel with 1 hour notice.</p>
+        </section>
+
+        <section id="view-profile" class="view hidden">
+          <div class="profile-head">
+            <div id="profile-avatar" class="profile-avatar">MC</div>
+            <div>
+              <h3 id="profile-name">Maya Chen</h3>
+              <p id="profile-meta" class="muted">2nd year | Computer Science</p>
+              <div class="verified-pill">Boston University verified</div>
+            </div>
+          </div>
+
+          <div class="section-card">
+            <div class="section-row">
+              <p class="section-label">Bio</p>
+              <button id="edit-bio" class="text-btn" type="button">Edit</button>
+            </div>
+            <p id="profile-bio" class="profile-bio">Looking for study buddies + coffee pals.</p>
+          </div>
+
+          <div class="section-card">
+            <div class="section-row">
+              <p class="section-label">Interests</p>
+              <button id="edit-interests" class="text-btn" type="button">Edit interests</button>
+            </div>
+            <div id="profile-interests" class="pill-row profile-pills"></div>
+          </div>
+
+          <div class="section-card">
+            <p class="section-label">Availability</p>
+            <div id="availability-grid" class="availability-grid"></div>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-card">
+              <strong>12</strong>
+              <span>Sparks completed</span>
+            </div>
+            <div class="stat-card">
+              <strong>8</strong>
+              <span>People met</span>
+            </div>
+            <div class="stat-card">
+              <strong>Coffee chat</strong>
+              <span>Favorite activity</span>
+            </div>
+          </div>
+
+          <div class="settings-links">
+            <button class="link-btn" type="button">Settings</button>
+            <button class="link-btn" type="button">Sign out</button>
+          </div>
+        </section>
+
+        <nav class="tabbar">
+          <button class="tab active" data-view="home" type="button">Home</button>
+          <button class="tab" data-view="discover" type="button">Discover</button>
+          <button class="tab" data-view="meetups" type="button">Meetups</button>
+          <button class="tab" data-view="profile" type="button">Profile</button>
+        </nav>
+      </section>
+
+      <section id="incoming-sheet" class="modal-sheet hidden">
+        <div class="sheet-card">
+          <p class="eyebrow">Incoming Spark</p>
+          <h3>Someone wants to Spark with you!</h3>
+          <p id="incoming-timer" class="countdown-copy">You have 2 hours to respond</p>
+
+          <div class="incoming-person">
+            <div id="incoming-avatar" class="avatar coral-avatar">JL</div>
+            <div>
+              <strong id="incoming-name">Jordan Lee | 3rd year</strong>
+              <p id="incoming-major" class="muted">Psychology</p>
+            </div>
+          </div>
+
+          <div class="section-card">
+            <div class="detail-row">
+              <span>Proposed activity</span>
+              <strong id="incoming-activity">Coffee chat at the Student Union</strong>
+            </div>
+            <div class="detail-row">
+              <span>Proposed time</span>
+              <strong id="incoming-time">Today, 2:00-3:00pm</strong>
+            </div>
+            <div id="incoming-interests" class="pill-row shared-pills"></div>
+          </div>
+
+          <div class="sheet-actions">
+            <button id="accept-incoming" class="primary-btn wide-btn" type="button">Accept the Spark</button>
+            <button id="decline-incoming" class="secondary-btn wide-btn" type="button">Maybe another time</button>
+          </div>
+
+          <p class="caption centered">They won't be notified if you decline - no awkwardness.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>

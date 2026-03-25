@@ -141,6 +141,45 @@ function seedLocalUsers() {
       ],
       created_at: base,
       updated_at: base,
+    },
+    {
+      id: newId(),
+      email: 'morgan@spark.local',
+      first_name: 'Morgan',
+      university: 'Local University',
+      campus_id: campusId,
+      interests: ['Running', 'Journaling', 'Matcha'],
+      prompts: [
+        { question_id: 'q3', question: 'A tiny ritual that makes my day better', answer: 'A slow walk with an iced matcha before class.' },
+      ],
+      created_at: base,
+      updated_at: base,
+    },
+    {
+      id: newId(),
+      email: 'priya@spark.local',
+      first_name: 'Priya',
+      university: 'Local University',
+      campus_id: campusId,
+      interests: ['Matcha', 'Reading', 'Museums'],
+      prompts: [
+        { question_id: 'q4', question: 'The kind of conversation I never get tired of', answer: 'Big ideas, niche interests, and unreasonably specific recommendations.' },
+      ],
+      created_at: base,
+      updated_at: base,
+    },
+    {
+      id: newId(),
+      email: 'leo@spark.local',
+      first_name: 'Leo',
+      university: 'Local University',
+      campus_id: campusId,
+      interests: ['Basketball', 'Podcasts', 'Cooking'],
+      prompts: [
+        { question_id: 'q5', question: 'My most reliable way to reset after a long day', answer: 'Making something from scratch and putting on a great podcast.' },
+      ],
+      created_at: base,
+      updated_at: base,
     }
   );
 }
@@ -311,6 +350,10 @@ export function listCampuses() {
 
 export function listUsersByCampus(campusId: string) {
   return dbData.users.filter((u) => (u.campus_id || 'local-campus') === campusId);
+}
+
+export function listUsers() {
+  return [...dbData.users];
 }
 
 export function listPendingMatchesSince(dateIso: string) {
